@@ -4,14 +4,11 @@ import sqlalchemy
 
 
 ''' FastAPI CONFIGURATION '''
-app = FastAPI(__name__,
-              title="FastAPI CRUD Example",
-              docs_url="/docs", redoc_url="/redocs"
-)
+app = FastAPI(title="FastAPI CRUD Example", docs_url="/docs", redoc_url="/redocs")
 
 
 ''' DATABASE CONNECTION '''
-DATABASE_URL = "postgresql://fastapi:123456@localhost/fastapi"
+DATABASE_URL = "postgresql://postgres:docker@localhost:5432/postgres"
 database = databases.Database(DATABASE_URL)
 metadata = sqlalchemy.MetaData()
 
