@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_sqlalchemy import db
-from models.post import Post as ModelPost
-from schemas.post import Post as SchemaPost
+from models import Post as ModelPost
+from schemas import Post as SchemaPost
 from typing import List
 
 router = APIRouter()
