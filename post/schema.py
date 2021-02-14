@@ -12,3 +12,6 @@ class Post(BaseModel):
     is_published: bool = False  # Providing a default value False
     created: datetime = datetime.utcnow()
     modified: datetime = datetime.utcnow()
+
+    class Config:
+        orm_mode = True

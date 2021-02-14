@@ -1,17 +1,18 @@
-import sqlalchemy
-from config import metadata
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Text, Boolean
+from sqlalchemy.sql.sqltypes import DateTime
 from datetime import datetime
 
 
-''' SQLAlchemy Model'''
-posts = sqlalchemy.Table(
-    "posts",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("title", sqlalchemy.String(100), unique=True),
-    sqlalchemy.Column("body", sqlalchemy.Text),
-    sqlalchemy.Column("is_published", sqlalchemy.Boolean),
-    sqlalchemy.Column("created", sqlalchemy.DateTime, default=datetime.utcnow().strftime("%Y-%m-%d" "%H:%M:%S")),
-    sqlalchemy.Column("modified", sqlalchemy.DateTime, default=datetime.utcnow().strftime("%Y-%m-%d" "%H:%M:%S"))
-)
+Base = declarative_base()
 
+class Post(Base):
+    __tablename__ = "posts"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String(100))
+    body = Column(Text)
+    is_published = Column(Boolean)
+    created = Column(DateTime, default=datetime.utcnow().strftime("%Y-%m-%d" "%H:%M:%S"))
+    modified = Column(DateTime, default=datetime.utcnow().strftime("%Y-%m-%d" "%H:%M:%S"))
