@@ -11,6 +11,9 @@ alembic = "*"
 psycopg2 = "*"
 uvicorn = "*"
 python-dotenv = "*"
+pypika = "*"
+databases = {extras = ["postgresql"], version = "*"}
+asyncpg = "*"
 
 [dev-packages]
 
