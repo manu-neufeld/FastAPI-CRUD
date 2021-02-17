@@ -1,13 +1,15 @@
+from sqlalchemy import (Column, DateTime, Integer, String, Boolean, Table)
+from sqlalchemy.sql import func
 from app.db.db import metadata
-import sqlalchemy
+from datetime import datetime
 
-posts = sqlalchemy.Table(
+posts = Table(
     "posts",
     metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("title", sqlalchemy.String),
-    sqlalchemy.Column("body", sqlalchemy.String),
-    sqlalchemy.Column("is_published", sqlalchemy.Boolean),
-    sqlalchemy.Column("created", sqlalchemy.DateTime),
-    sqlalchemy.Column("modified", sqlalchemy.DateTime),
+    Column("id", Integer, primary_key=True),
+    Column("title", String),
+    Column("body", String),
+    Column("is_published", Boolean),
+    Column("created", DateTime, default=func.now(), nullable=False),
+    Column("modified", DateTime, onupdate=func.now()),
 )

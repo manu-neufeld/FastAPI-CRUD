@@ -10,10 +10,19 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "app.main:app",
+                "app.debug:app",
                 "--reload"
             ],
             "jinja": true
-        }
+        },
+        {
+            "name": "Python: FastAPI test",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+            ],
+            "jinja": true
+        }        
     ]
 }
