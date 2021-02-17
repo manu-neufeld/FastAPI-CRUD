@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from app.api.api_v1.api import api_router
+from app.api.api_v1.endpoints import posts
 from starlette.middleware.cors import CORSMiddleware
 from app.core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERSION
 from app.db.db import db
@@ -15,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(api_router, prefix=API_PREFIX)
+app.include_router(posts.router, prefix=API_PREFIX)
 
 @app.on_event("startup")
 async def startup():
