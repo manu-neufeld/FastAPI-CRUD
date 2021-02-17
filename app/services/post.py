@@ -11,8 +11,8 @@ class Post:
     @classmethod
     async def get_all(cls):
         query = posts.select()
-        posts = await db.fetch_all(query)
-        return posts
+        db_posts = await db.fetch_all(query)
+        return db_posts
 
     @classmethod
     async def create(cls, **post):

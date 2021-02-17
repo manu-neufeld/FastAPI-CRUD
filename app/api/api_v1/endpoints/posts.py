@@ -10,12 +10,12 @@ router = APIRouter()
 @router.get("/post/", response_model=List[SchemaPost])
 async def get_all_post():
     db_posts = await ServicePost.get_all()
-    return db_posts
+    return list(map(lambda db_post: SchemaPost(**db_post), db_posts))
 
 @router.get("/post/{id}", response_model=SchemaPost)
 async def get_post(id: int):
     db_post = await ServicePost.get(id)
-    return db_post
+    return SchemaPost(**db_post)
 
 @router.post("/post/", response_model=SchemaPost)
 async def create_post(post: SchemaPost):
