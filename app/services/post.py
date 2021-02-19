@@ -1,7 +1,6 @@
 from app.db.db import db
 from app.models.post import PostSchema
 from app.db.tables import posts
-from datetime import datetime
 
 async def get_all():
     query = posts.select()
