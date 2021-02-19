@@ -1,7 +1,6 @@
 from sqlalchemy import (Column, DateTime, Integer, String, Boolean, Table)
 from sqlalchemy.sql import func
 from app.db.db import metadata
-from datetime import datetime
 
 posts = Table(
     "posts",

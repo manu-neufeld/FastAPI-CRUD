@@ -14,6 +14,7 @@ python-dotenv = "*"
 pypika = "*"
 databases = {extras = ["postgresql"], version = "*"}
 asyncpg = "*"
+pytest = "*"
 
 [dev-packages]
 

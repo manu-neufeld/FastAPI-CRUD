@@ -2,7 +2,6 @@ from typing import Optional
 from pydantic import BaseModel, Field, validator
 from datetime import datetime
 
-from pydantic.errors import DataclassTypeError
 from app.models.rwmodel import RWModel
 
 class PostSchema(RWModel):
